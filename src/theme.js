@@ -1,6 +1,5 @@
 import { theme } from "@chakra-ui/core";
 
-// Let's say you want to add custom colors
 export const customTheme = {
   ...theme,
   colors: {
@@ -8,7 +7,13 @@ export const customTheme = {
     brand: {
       900: "#1a1a2e",
       800: "#e94560",
-      700: "#2a69ac",
+      700: "#0f3460",
+      600: "#16213e",
     },
+  },
+  fonts: {
+    ...theme.fonts,
+    heading: "'Exo 2', sans-serif",
+    numbers: "'Do Hyeon', sans-serif",
   },
 };

@@ -1,7 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
 :root {
   --bg: #1a1a2e;
 }
 
+#root {
+  min-height: 100vh;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -13,18 +18,22 @@ body {
 }
 
 .leaflet-container {
-  width: 1000px;
+  width: 80%;
   height: 500px;
   margin: 2em auto;
   border-radius: 5px;
 }
 
 .custom-circle {
-  fill: rgb(255, 102, 0);
-  stroke: 0;
-  opacity: 1;
+  fill: #e94560;
+  stroke: #e94560;
   transition: stroke-width 0.5s;
 }
 .custom-circle:hover {
-  stroke-width: 42px;
+  stroke-width: 30px;
+}
+
+.table-img {
+  width: 59px;
+  height: 39px;
 }

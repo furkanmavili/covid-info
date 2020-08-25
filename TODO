@@ -1,0 +1,21 @@
+todos:
+	✔  Add router @done(20-08-24 16:14)
+	✘  Fix sorting bug @cancelled(20-08-24 21:33)
+	✔  Add new page for only one country data @done(20-08-24 20:39)
+	✔  Add Social component @done(20-08-24 20:39)
+	✔  Change Logo @done(20-08-24 20:39)
+	✔ Add search input for countries to Header and route to country page @done(20-08-25 16:35)
+	✔  Add new fonts, maybe illustrations.. @done(20-08-25 17:25)
+	✔  Change favicon, manifest @done(20-08-25 17:24)
+	✔  Add hint for stats page ('you can sort by clicking') @done(20-08-24 21:08)
+	✔  Add footer for data sources, and social component @done(20-08-24 20:19)
+	✔  Add graph for historical data for all countries @done(20-08-25 16:50)
+	✔  Finish country page @done(20-08-25 17:18)
+	✔  Add page not found and country not found page @done(20-08-25 17:19)
+	☐  Add information page(like what should we do etc.)
+	☐  Publish to github pages (dont forget to looking extra router config)
+	
+maybe: 
+	 ☐  add page transitions (react-motion..)
+	 ☐  domain
+	 ☐  simple graphs
