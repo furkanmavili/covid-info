@@ -1,30 +1,33 @@
 import React, { useState } from "react";
-import { Input, Box, useTheme, Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
+import SearchInput from "./SearchInput";
 
 function CustomInput({ handleFly }) {
   const [countryName, setCountryName] = useState("");
-  const theme = useTheme();
-  const bg = theme.colors.brand["800"];
+
+  const handleSubmit = (e) => {
+    e.preventDefault()  
+    handleFly(countryName)
+  }
   return (
-    <Flex m="auto" alignItems="center" w="300px">
-      <Input
-        variant="flushed"
-        color="white"
+    <Flex as="form" onSubmit={handleSubmit} m="auto" alignItems="center" maxW="400px">
+      <SearchInput
+        value={countryName}
         onChange={(e) => setCountryName(e.target.value)}
-        placeholder="country name"
-        focusBorderColor={bg}
+        rightAdornment={
+          <Box
+            as="button"
+            _hover={{ cursor: "pointer" }}
+            variant="ghost"
+            fontWeight="bold"
+            fontSize="1.2rem"
+            type="submit"
+            color="red.400"
+          >
+            Go
+          </Box>
+        }
       />
-      <Box
-        _hover={{ cursor: "pointer" }}
-        backgroundColor="inherit"
-        color={bg}
-        fontWeight="bold"
-        fontSize="1.2rem"
-        ml="1em"
-        onClick={() => handleFly(countryName)}
-      >
-        Go
-      </Box>
     </Flex>
   );
 }
