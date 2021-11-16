@@ -6,7 +6,7 @@ import Stats from "./pages/Stats";
 import axios from "axios";
 import Country from "./pages/Country";
 import Footer from "./components/Footer";
-import { Container } from "@chakra-ui/react";
+import { VStack, Container } from "@chakra-ui/react";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -22,24 +22,26 @@ export default function App() {
   return (
     <>
       <Router>
-        <Container>
+        <VStack w="100%" minH="100vh">
           <Header />
-          <Switch>
-            <Route path="/covid-info/stats/:countryName">
-              <Country />
-            </Route>
-            <Route exact path="/covid-info/stats">
-              <Stats data={data} setData={setData} />
-            </Route>
-            <Route exact path="/covid-info">
-              <Home data={data} />
-            </Route>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
+          <Container maxW="container.lg">
+            <Switch>
+              <Route path="/covid-info/stats/:countryName">
+                <Country />
+              </Route>
+              <Route exact path="/covid-info/stats">
+                <Stats data={data} setData={setData} />
+              </Route>
+              <Route exact path="/covid-info">
+                <Home data={data} />
+              </Route>
+              <Route path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+          </Container>
           <Footer />
-        </Container>
+        </VStack>
       </Router>
     </>
   );

@@ -1,15 +1,16 @@
 import React from "react";
-import { Flex, Text, useTheme, Stack } from "@chakra-ui/react";
+import { Flex, Text, Stack } from "@chakra-ui/react";
 import Social from "./Social";
 
 function Footer() {
-  const theme = useTheme();
   return (
     <Flex
+      as="footer"
       justifyContent="center"
       alignItems="center"
-      bg={theme.colors.brand["600"]}
-      mt="3em"
+      marginTop="auto !important"
+      w="full"
+      pb="4"
     >
       <Stack alignItems="center" mt="1em">
         <Text fontWeight="bold" color="gray.300">

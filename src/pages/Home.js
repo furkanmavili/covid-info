@@ -2,14 +2,15 @@ import React from "react";
 import TotalStats from "../components/TotalStats";
 import WorldMap from "../components/WorldMap";
 import "leaflet/dist/leaflet.css";
+import { Box } from "@chakra-ui/layout";
 
 
 function Home({ data }) {
   return (
-    <div>
+    <Box w="100%">
       <WorldMap data={data} />
       <TotalStats />
-    </div>
+    </Box>
   );
 }
 
