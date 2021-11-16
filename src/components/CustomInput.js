@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, PseudoBox, useTheme, Flex } from "@chakra-ui/core";
+import { Input, Box, useTheme, Flex } from "@chakra-ui/react";
 
 function CustomInput({ handleFly }) {
   const [countryName, setCountryName] = useState("");
@@ -14,7 +14,7 @@ function CustomInput({ handleFly }) {
         placeholder="country name"
         focusBorderColor={bg}
       />
-      <PseudoBox
+      <Box
         _hover={{ cursor: "pointer" }}
         backgroundColor="inherit"
         color={bg}
@@ -24,7 +24,7 @@ function CustomInput({ handleFly }) {
         onClick={() => handleFly(countryName)}
       >
         Go
-      </PseudoBox>
+      </Box>
     </Flex>
   );
 }

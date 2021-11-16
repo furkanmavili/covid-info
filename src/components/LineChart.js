@@ -1,6 +1,6 @@
 import React from "react";
 import { ResponsiveLine } from "@nivo/line";
-import { useTheme } from "@chakra-ui/core";
+import { useTheme } from "@chakra-ui/react";
 
 const LineChart = ({ data, title, color }) => {
   const theme = useTheme();

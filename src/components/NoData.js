@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Text, useTheme } from "@chakra-ui/core";
+import { Box, Image, Text, useTheme } from "@chakra-ui/react";
 import NoDataSvg from "../images/nodata.svg";
 
 function NotFound() {

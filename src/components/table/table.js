@@ -1,7 +1,7 @@
-import { Box, BoxProps } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 import React from "react";
 
-export function Table(props: BoxProps) {
+export function Table(props) {
   return (
     <Box
       shadow="sm"
@@ -20,7 +20,7 @@ export function Table(props: BoxProps) {
  * Defines a set of rows defining the head of the columns of the table. It
  * renders a `<thead>` HTML element.
  */
-export function TableHead(props: BoxProps) {
+export function TableHead(props) {
   return <Box cursor="pointer" as="thead" {...props} />;
 }
 
@@ -29,7 +29,7 @@ export function TableHead(props: BoxProps) {
  * using a mix of `TableCell` and `TableHeader` elements. It renders a `<tr>`
  * HTML element.
  */
-export function TableRow(props: BoxProps) {
+export function TableRow(props) {
   return <Box as="tr" {...props} />;
 }
 
@@ -37,7 +37,7 @@ export function TableRow(props: BoxProps) {
  * Defines a cell as header of a group of table cells. It renders a `<th>` HTML
  * element.
  */
-export function TableHeader(props: BoxProps) {
+export function TableHeader(props) {
   return (
     <Box
       as="th"
@@ -61,7 +61,7 @@ export function TableHeader(props: BoxProps) {
  * Encapsulates a set of table rows, indicating that they comprise the body of
  * the table. It renders a `<tbody>` HTML element.
  */
-export function TableBody(props: BoxProps) {
+export function TableBody(props) {
   return <Box as="tbody" {...props} />;
 }
 
@@ -69,7 +69,7 @@ export function TableBody(props: BoxProps) {
  * Defines a cell of a table that contains data. It renders a `<td>` HTML
  * element.
  */
-export function TableCell(props: BoxProps) {
+export function TableCell(props) {
   return (
     <Box
       as="td"

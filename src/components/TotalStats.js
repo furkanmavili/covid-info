@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Flex, Text, Stack, useTheme } from "@chakra-ui/core";
+import { Flex, Text, Stack, useTheme } from "@chakra-ui/react";
 import axios from "axios";
 import { numberWithCommas } from "../utils";
 

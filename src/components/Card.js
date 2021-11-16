@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, useTheme } from "@chakra-ui/core";
+import { Box, Text, useTheme } from "@chakra-ui/react";
 import { numberWithCommas } from "../utils";
 function Card({ cases, death, recovered, title }) {
   const theme = useTheme();

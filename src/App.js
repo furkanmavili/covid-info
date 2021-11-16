@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Home from "./pages/HomePage";
-import Stats from "./pages/StatsPage";
+import Home from "./pages/Home";
+import Stats from "./pages/Stats";
 import axios from "axios";
-import CountryPage from "./pages/CountryPage";
+import Country from "./pages/Country";
 import Footer from "./components/Footer";
-import { Flex } from "@chakra-ui/core";
-import PageNotFound from "./pages/PageNotFound";
+import { Container } from "@chakra-ui/react";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -22,11 +22,11 @@ export default function App() {
   return (
     <>
       <Router>
-        <Flex direction="column" minHeight="100vh">
+        <Container>
           <Header />
           <Switch>
             <Route path="/covid-info/stats/:countryName">
-              <CountryPage />
+              <Country />
             </Route>
             <Route exact path="/covid-info/stats">
               <Stats data={data} setData={setData} />
@@ -35,11 +35,11 @@ export default function App() {
               <Home data={data} />
             </Route>
             <Route path="*">
-              <PageNotFound />
+              <NotFound />
             </Route>
           </Switch>
           <Footer />
-        </Flex>
+        </Container>
       </Router>
     </>
   );

@@ -10,7 +10,7 @@ import {
   InputGroup,
   InputRightElement,
   IconButton,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
 
 const MenuItems = ({ children }) => (

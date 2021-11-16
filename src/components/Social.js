@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Link, Flex } from "@chakra-ui/core";
+import { Box, Link, Flex } from "@chakra-ui/react";
 import { FaTwitter, FaGithub } from "react-icons/fa";
 function Social() {
   return (

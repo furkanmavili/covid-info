@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Text, useTheme, Stack } from "@chakra-ui/core";
+import { Flex, Text, useTheme, Stack } from "@chakra-ui/react";
 import Social from "./Social";
 
 function Footer() {

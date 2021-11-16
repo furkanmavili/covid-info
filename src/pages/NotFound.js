@@ -1,6 +1,7 @@
 import React from "react";
-import { Flex, Image } from "@chakra-ui/core";
+import { Flex, Image } from "@chakra-ui/react";
 import Error404 from "../images/pagenotfound.svg";
+
 function PageNotFound() {
   return (
     <Flex justifyContent="center" alignItems="center" flex={1}>

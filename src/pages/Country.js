@@ -11,7 +11,7 @@ import {
   Box,
   useTheme,
   Skeleton,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import Card from "../components/Card";
 import LineChart from "../components/LineChart";
 import { changeDataForChart } from "../utils";
