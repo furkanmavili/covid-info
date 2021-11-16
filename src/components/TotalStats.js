@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Flex, Text, Stack, useTheme } from "@chakra-ui/react";
+import { SimpleGrid, Text, Stack, useTheme } from "@chakra-ui/react";
 import axios from "axios";
 import { numberWithCommas } from "../utils";
 
@@ -14,62 +14,29 @@ function TotalStats({ handleFly }) {
   }, []);
 
   return (
-    <>
-      <Flex
-        justifyContent="space-around"
-        mt="50px"
-        direction={["column", "row"]}
-      >
-        <CustomBox title="Cases" text={totalData.cases} />
-        <CustomBox title="Deaths" text={totalData.deaths} />
-        <CustomBox title="Recovered" text={totalData.recovered} />
-      </Flex>
-      <Flex
-        justifyContent="space-around"
-        mt="50px"
-        direction={["column", "row"]}
-      >
-        <CustomBox title="Today Cases" text={totalData.todayCases} />
-        <CustomBox title="Today Deaths" text={totalData.todayDeaths} />
-        <CustomBox title="Today Recovered" text={totalData.todayRecovered} />
-      </Flex>
-    </>
+    <SimpleGrid columns={[2,3]} spacing={10} mt={10}>
+      <CustomBox title="Cases" text={totalData.cases} />
+      <CustomBox title="Deaths" text={totalData.deaths} />
+      <CustomBox title="Recovered" text={totalData.recovered} />
+      <CustomBox title="Today Cases" text={totalData.todayCases} />
+      <CustomBox title="Today Deaths" text={totalData.todayDeaths} />
+      <CustomBox title="Today Recovered" text={totalData.todayRecovered} />
+    </SimpleGrid>
   );
 }
 
 function CustomBox({ title, text }) {
+  const theme = useTheme();
   return (
-    <Stack alignItems="center" pt="4px" flex={1}>
-      <CustomTitle text={title} />
-      <CustomText text={text} />
+    <Stack textAlign="center" fontFamily={theme.fonts.numbers} color={theme.colors.brand["800"]}>
+      <Text  fontSize={["1rem", "1.4rem"]} fontWeight="bold" color="gray.400">
+        {title}
+      </Text>
+      <Text fontSize={["1.5rem", "2rem"]} fontWeight="700" mt="0 !important">
+        {numberWithCommas(text)}
+      </Text>
     </Stack>
   );
 }
 
-function CustomText({ text }) {
-  const theme = useTheme();
-  return (
-    <Text
-      fontFamily={theme.fonts.numbers}
-      fontSize="2rem"
-      color={theme.colors.brand["800"]}
-      fontWeight="900"
-    >
-      {numberWithCommas(text)}
-    </Text>
-  );
-}
-function CustomTitle({ text }) {
-  const theme = useTheme();
-  return (
-    <Text
-      fontSize="1.4rem"
-      fontFamily={theme.fonts.numbers}
-      fontWeight="bold"
-      color="gray.400"
-    >
-      {text}
-    </Text>
-  );
-}
 export default TotalStats;
