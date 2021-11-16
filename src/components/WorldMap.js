@@ -40,37 +40,38 @@ function WorldMap({ data }) {
   };
 
   return (
-    <Map ref={mapRef} center={location} zoom={zoom} zoomControl={false}>
-      <TileLayer
-        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {data &&
-        data.map((country, index) => {
-          return (
-            <Circle
-              key={index}
-              color="blue"
-              radius={30000}
-              className="custom-circle"
-              center={[country.countryInfo["lat"], country.countryInfo["long"]]}
-            >
-              <Popup>
-                <Detail
-                  name={country.country}
-                  caseNumber={country.cases}
-                  deaths={country.deaths}
-                  recovered={country.recovered}
-                  tests={country.tests}
-                />
-              </Popup>
-            </Circle>
-          );
-        })}
-      <ZoomControl position="bottomright" />
-
+    <>
+      <Map ref={mapRef} center={location} zoom={zoom} zoomControl={false}>
+        <TileLayer
+          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {data &&
+          data.map((country, index) => {
+            return (
+              <Circle
+                key={index}
+                color="blue"
+                radius={30000}
+                className="custom-circle"
+                center={[country.countryInfo["lat"], country.countryInfo["long"]]}
+              >
+                <Popup>
+                  <Detail
+                    name={country.country}
+                    caseNumber={country.cases}
+                    deaths={country.deaths}
+                    recovered={country.recovered}
+                    tests={country.tests}
+                  />
+                </Popup>
+              </Circle>
+            );
+          })}
+        <ZoomControl position="bottomright" />
+      </Map>
       <CustomInput handleFly={handleFly} />
-    </Map>
+    </>
   );
 }
 
