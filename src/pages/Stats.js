@@ -1,14 +1,10 @@
 import React from "react";
-import { CustomTable } from "../components/table/tableStories";
-import { useRouteMatch } from "react-router-dom";
+import StatsTable from "../components/StatsTable";
 
-function StatsPage({ data, setData }) {
-  let { url } = useRouteMatch();
+function Stats({ data }) {
   return (
-    <>
-      <CustomTable data={data} setData={setData} url={url} />
-    </>
+      <StatsTable data={data} />
   );
 }
 
-export default StatsPage;
+export default Stats;

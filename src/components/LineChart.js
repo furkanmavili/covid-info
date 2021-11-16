@@ -4,7 +4,6 @@ import { useTheme } from "@chakra-ui/react";
 
 const LineChart = ({ data, title, color }) => {
   const theme = useTheme();
-  console.log("data:", data);
   if (!data) {
     return <h1>loading</h1>;
   }

@@ -29,10 +29,10 @@ function CustomBox({ title, text }) {
   const theme = useTheme();
   return (
     <Stack textAlign="center" fontFamily={theme.fonts.numbers} color={theme.colors.brand["800"]}>
-      <Text  fontSize={["1rem", "1.4rem"]} fontWeight="bold" color="gray.400">
+      <Text  fontSize={["1rem", "1.2rem"]} fontWeight="bold" color="gray.400">
         {title}
       </Text>
-      <Text fontSize={["1.5rem", "2rem"]} fontWeight="700" mt="0 !important">
+      <Text fontSize={["1.5rem", "1.8rem"]} fontWeight="700" mt="0 !important">
         {numberWithCommas(text)}
       </Text>
     </Stack>

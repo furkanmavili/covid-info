@@ -1,69 +1,95 @@
 import React, { useState } from "react";
-import { Box, Heading, Flex, Text, Link, useTheme, IconButton, Container, Icon } from "@chakra-ui/react";
-import { Link as ReactLink } from "react-router-dom";
+import { Heading, Link, useTheme, Container, Icon } from "@chakra-ui/react";
 import SearchInput from "./SearchInput";
-import { FaSearch } from "react-icons/fa";
+import { Button, IconButton } from "@chakra-ui/button";
+import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
+import { Box, Flex, HStack, Spacer } from "@chakra-ui/layout";
+import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
+import { useHistory } from "react-router";
+import {Link as RouterLink} from "react-router-dom"
 
-const MenuItems = ({ children }) => (
-  <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
-    {children}
-  </Text>
-);
+const navLinks = [
+  {
+    text: "Home",
+    href: "/",
+  },
+  {
+    text: "Stats",
+    href: "/stats",
+  },
+];
 
 const Header = () => {
-  const [show, setShow] = React.useState(false);
   const theme = useTheme();
-  const [input, setInput] = useState("");
-  const handleToggle = () => setShow(!show);
-
   return (
     <Container maxW="container.lg">
-      <Flex as="nav" align="center" justify="space-between" wrap="wrap" pt={10} mb={5} w="full">
-        <Flex align="center" mr={5}>
-          <CovidIcon />
-          <Heading fontFamily={theme.fonts.heading} as="h1" size="lg" flex={1}>
-            Covid Info
-          </Heading>
-        </Flex>
-
-        <Box display={{ sm: "block", md: "none" }} onClick={handleToggle}>
-          <svg fill="white" width="12px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </Box>
-
-        <Box
-          display={{ sm: show ? "block" : "none", md: "flex" }}
-          width={{ sm: "full", md: "auto" }}
-          alignItems="center"
-        >
-          <MenuItems>
-            <Link as={ReactLink} to="/covid-info">
-              Home
-            </Link>
-          </MenuItems>
-          <MenuItems>
-            <Link as={ReactLink} to="/covid-info/stats">
-              Stats
-            </Link>
-          </MenuItems>
-          <MenuItems>
-            <SearchInput
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              rightAdornment={
-                <Link as={ReactLink} to={`/covid-info/stats/${input}`}>
-                  <FaSearch />
-                </Link>
-              }
-            />
-          </MenuItems>
-        </Box>
+      <Flex as="nav" align="center" justify="space-between" wrap="wrap" py={5} w="full">
+        <CovidIcon />
+        <Heading fontFamily={theme.fonts.heading} as="h1" size="lg" flex={1}>
+          Covid Info
+        </Heading>
+        <Spacer />
+        <Nav />
+        <Dropdown />
+        <CountrySearch />
       </Flex>
     </Container>
   );
 };
+
+function CountrySearch() {
+  const [inputValue, setInputValue] = useState("");
+  const history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push(`/stats/${inputValue}`);
+  };
+  return (
+    <Box as="form" onSubmit={handleSubmit} display={{ base: "none", md: "flex" }}>
+      <SearchInput
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        rightAdornment={<SearchIcon cursor="pointer" as="button" type="submit" onClick={handleSubmit} />}
+      />
+    </Box>
+  );
+}
+
+function Nav() {
+  return (
+    <HStack as="nav" spacing="4" display={{ base: "none", md: "flex" }} mr="3">
+      {navLinks.map((link, index) => (
+        <Link as={RouterLink} to={link.href} key={index}>
+          <Button variant="link" fontWeight="600">
+            {link.text}
+          </Button>
+        </Link>
+      ))}
+    </HStack>
+  );
+}
+
+function Dropdown() {
+  return (
+    <Menu placement="bottom-end" display={{ base: "inline-flex", md: "none" }}>
+      <MenuButton
+        display={{ base: "block", md: "none" }}
+        as={IconButton}
+        aria-label="Options"
+        variant="ghost"
+        icon={<HamburgerIcon />}
+      />
+      <MenuList zIndex={401}>
+        {navLinks.map((link, index) => (
+          <Link key={index} href={link.href}>
+            <MenuItem>{link.text}</MenuItem>
+          </Link>
+        ))}
+      </MenuList>
+    </Menu>
+  );
+}
 
 function CovidIcon() {
   return (

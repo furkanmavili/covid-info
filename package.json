@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.7.1",
     "@emotion/react": "11",
     "@emotion/styled": "11",
@@ -18,8 +19,11 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.7.0",
+    "react-rounder": "^1.1.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-top-loading-bar": "^2.0.1",
+    "use-http": "^1.0.26"
   },
   "scripts": {
     "predeploy": "yarn run build",

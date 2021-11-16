@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import SearchInput from "./SearchInput";
+import { SearchIcon } from "@chakra-ui/icons";
 
 function CustomInput({ handleFly }) {
   const [countryName, setCountryName] = useState("");
@@ -15,17 +16,7 @@ function CustomInput({ handleFly }) {
         value={countryName}
         onChange={(e) => setCountryName(e.target.value)}
         rightAdornment={
-          <Box
-            as="button"
-            _hover={{ cursor: "pointer" }}
-            variant="ghost"
-            fontWeight="bold"
-            fontSize="1.2rem"
-            type="submit"
-            color="red.400"
-          >
-            Go
-          </Box>
+          <SearchIcon as="button" onClick={handleSubmit} cursor="pointer" />
         }
       />
     </Flex>

@@ -26,13 +26,13 @@ export default function App() {
           <Header />
           <Container maxW="container.lg">
             <Switch>
-              <Route path="/covid-info/stats/:countryName">
+              <Route path="/stats/:countryName">
                 <Country />
               </Route>
-              <Route exact path="/covid-info/stats">
+              <Route exact path="/stats">
                 <Stats data={data} setData={setData} />
               </Route>
-              <Route exact path="/covid-info">
+              <Route exact path="/">
                 <Home data={data} />
               </Route>
               <Route path="*">
